@@ -20,9 +20,11 @@ module.exports = (sequelize) => {
     },
     height: {
       type: DataTypes.INTEGER,
+      allowNull: false,
     },
     weight:{
       type: DataTypes.INTEGER,
+      allowNull: false,
     }
   },{ 
     timestamps: false 
