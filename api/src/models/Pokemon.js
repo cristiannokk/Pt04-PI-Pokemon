@@ -28,13 +28,3 @@ module.exports = (sequelize) => {
     timestamps: false 
   });
 };
-
-
-// ID (Número de Pokemon) * : No puede ser un ID de un pokemon ya existente en la API pokeapi
-// Nombre *-
-// Vida -
-// Fuerza
-// Defensa
-// Velocidad
-// Altura
-// Peso
