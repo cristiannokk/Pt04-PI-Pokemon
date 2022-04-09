@@ -7,9 +7,11 @@ const { allPokemon} = require("../utils/utils");
 
 async function getPokemon(req, res) {
   let getAllPokemon = await allPokemon();
-  res.status(200).json(getAllPokemon);
-
+  res.status(201).json(getAllPokemon);
 }
+
+// cristian
+
 
 
 function getPokemonById(req, res) {
