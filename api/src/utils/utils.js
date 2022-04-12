@@ -1,6 +1,5 @@
 const axios = require('axios');
 const URL = "https://pokeapi.co/api/v2/pokemon/"
-const URL_TYPES = "https://pokeapi.co/api/v2/type"
 const { Pokemon, Type } = require('../db')
 
 
@@ -186,7 +185,8 @@ async function allPokemonId(id) {
         dataValues.types = dataValues.types.map((t) => t.name);
         if (dbPokemonById) return dataValues;
       } catch (error) {
-        console.log(error);
+        // console.log(error);
+        res.status(403)
       }
     } else {
       // pokemons x id desde la api
