@@ -39,8 +39,8 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: 5,
       validate: {
-        min: 5,
-        max: 190
+        min: 1,
+        max: 250
       }
     },
     defense: {
@@ -48,7 +48,7 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: 5,
       validate: {
-        min: 5,
+        min: 1,
         max: 250
       }
     },
@@ -57,7 +57,7 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: 5,      
       validate: {
-        min: 5,
+        min: 1,
         max: 200
       }
     },
@@ -67,7 +67,7 @@ module.exports = (sequelize) => {
       defaultValue: 1,
       validate: {
         min: 1,
-        max: 20
+        max: 250
       }
     },
     weight:{
@@ -78,6 +78,11 @@ module.exports = (sequelize) => {
         min: 1,
         max: 999
       }
+    },
+    createdPokemon: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+      allowNull: false,
     },
   },{ 
     timestamps: false 

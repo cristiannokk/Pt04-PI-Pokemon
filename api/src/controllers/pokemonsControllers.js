@@ -37,7 +37,7 @@ async function createPokemon(req, res){
   const {name, image, hp, attack, defense, speed, height, weight, type} = req.body
 
   // validando todo
-  if(!Object.keys(req.body).length) return res.status(400).send({err: 'Error'})
+  if(!Object.keys(req.body).length) return res.status(400).send({err: 'Error. No se recibio información para agregar '})
 
   // validando name 
   if(!name) return res.status(404).send({err: 'Error, no ingresaste el name del Pokemon'});
@@ -65,12 +65,13 @@ async function createPokemon(req, res){
         height: height,
         weight: weight,
     })
+
+    //agregando el Types:
     let addType = await Type.findAll({ where: { name: type } });
     await newPokemon.setTypes(addType);
-    return res
-    .status(201)
-    .send({ msg: `El Pokemon ${newPokemon.name} fue creado con éxito!.` });
-} catch (error) {
+    return res.status(201).send({ msg: `El Pokemon ${newPokemon.name} fue creado con éxito!.` });
+    
+  } catch (error) {
   res.status(404).send(error);
   console.log(error);
 }

@@ -1,0 +1,79 @@
+.background{
+  background-image: url(../../assets/pokeFondo1.jpg);
+  background-repeat: no-repeat;
+  background-position: 70% ;
+  background-size: cover;
+}
+
+.cardsDetails{
+  background: rgba(255, 255, 255, 0.808);
+  max-width: 700px;
+  height: 480px;
+  margin-right: 30%;
+  margin-left: 30%;
+  display:inherit;
+  box-shadow: 4px 4px .6em #104890, -5px 0 .6em #f63a95;
+  margin-top: 1px;
+}
+
+.pokeName{
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 14px;
+  padding-top: 16px;
+}
+
+.types{
+  display: flex;
+  flex-direction: column;
+  margin-left: 82%;
+  margin-top: 3px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.pokeImage {
+  max-width: 200px;
+  max-height: 200px;
+  margin: auto;
+  padding-left: 180px;
+  position: relative;
+}
+
+.description{
+  font-family: "Rubik", sans-serif;
+  text-decoration: "inherit"; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.2fr;
+  grid-column-gap: 3px;
+  grid-row-gap: 2px;
+  margin-left: 23%;
+}
+
+.button-home{
+  padding: 12px 25px 12px 25px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Rubik", sans-serif;
+  text-emphasis-color: #FFFF;
+  background: #8f3af6;
+  margin-left: 45%;
+  margin-top: 1.5%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 9px;
+  transition: 0.3s ease-in-out;
+}
+.button-home:hover {
+  color: #ffffff;
+  background: #b81c05;
+}
+
+.linked{
+  text-decoration: none;
+  color: #FFFF;
+}
