@@ -67,9 +67,9 @@ async function createPokemon(req, res){
     })
 
     //agregando el Types:
-    if(Array.isArray(type) && type.length){
-      let addType = await Promise.all(
-        type.map(e => {
+    if(Array.isArray(type) && type.length){ // consulto si llega un arreglo al types y si tiene algo.
+      let addType = await Promise.all( 
+        type.map(e => { // agarro la data del type y verifico que cada elemento exista en la tabla de tipos
           return Type.findOne({where: {name: e}})
         })            
       );
@@ -80,7 +80,7 @@ async function createPokemon(req, res){
     
   } catch (error) {
     res.status(404).send("error en data");
-    console.log((error))
+    // console.log((error))
   }
 };
 
