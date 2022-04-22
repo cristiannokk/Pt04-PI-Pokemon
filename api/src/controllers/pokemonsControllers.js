@@ -1,22 +1,25 @@
 const { Pokemon, Type } = require('../db')
-const { allPokemon, allPokemonId, searchPokemonName} = require("../utils/utils");
+const { allPokemon, allPokemonId} = require("../utils/utils");
 
 
 // ================== GET POKEMONS/NAME ==================
-async function getPokemon(req, res) {
-    // todos
-  const {name} = req.query
-  if(!name) {
-    let getAllPokemon = await allPokemon();
-    res.status(200).json(getAllPokemon);
-  }else{
-    // por nombre
-    try {
-      let pokemonName = await searchPokemonName(name.toLowerCase());
-      res.status(200).json(pokemonName);      
-    } catch (error) {
-        res.status(404).send(`Error: No existe el pokemon llamado ${name}`);
+async function getPokemon(req, res, next) {
+
+  try {
+    let name = req.query.name; //Recibo la request en una variable
+    let pokemonsTotal = await allPokemon(); //Guardo mi controlador que trae todos los pokemons en una variable..
+    if (name) { //Consulto si me pasan un nombre y lo busco en la variable de arriba
+      let pokemonName = await pokemonsTotal.filter((el) => 
+        el.name.toLowerCase().includes(name.toLowerCase())
+      );
+      pokemonName.length
+        ? res.status(200).send(pokemonName) // Si lo encuentro lo devuelvo,
+        : res.status(404).send("El pokemon ingresado no existe"); // y sino devuelvo el texto.
+    } else {
+      res.status(200).send(pokemonsTotal); //Sino devuelvo todos los pokemons
     }
+  } catch (error) {
+    next(error);
   }
 }
 
