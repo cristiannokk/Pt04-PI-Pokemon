@@ -1,55 +1,76 @@
-.landing-container{
+.landing-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient( 96.5deg,  rgba(39,103,187,1) 10.4%, rgb(144, 16, 57) 87.7% );
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.content{
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-  justify-content: flex-start;
-  height: 50%;
-  width: 90%;
-  padding: 12px;
-  margin-left: 40px;
-}
 
-.title{
-  flex-direction: column;
-  width: 700px;
-  font-size: 48px;
-  font-weight: 600;
-  font-family: "Rubik", sans-serif;
-  color: #ffffff;
-  align-self: left;
-  margin-top: 180px;
-}
-
-.btn{
-  position: left;
-  left: 12px;
-  border-radius: 10px;
-  background-color: #8f3af6;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
-  font-family: "Rubik", sans-serif;
+.btn {
+  position: relative;
+  padding: 25px 45px;
+  margin: 0 15px;
+  background-color: #0000006c;
+  background-repeat: no-repeat;
   cursor: pointer;
-  padding: 15px;
-  transition: 0.3s ease-in-out;
+  color: #ff2121;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 25px;
+  overflow: hidden;
+  transition: 0.5s;
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
+}
+/* ff2121 */
+
+.btn:hover {
+  background: #ff2121;
+  color: #111;
+  box-shadow: 0 0 50px #ff2121;
+  transition-delay: 0.5s;
 }
 
-.btn:hover{
-  color: #ffffff;
-  background: #b81c05;
-}
-
-.img{
+.btn:before {
+  content: " ";
   position: absolute;
-  top: 150px;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #ff2121;
+  border-left: 2px solid #ff2121;
+  transition: 0.5s;
+  transition-delay: 0s;
+
+}
+
+.btn:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #ff2121;
+  border-right: 2px solid #ff2121;
+  transition: 0.5s;
+  transition-delay: 0s;
+
+}
+
+.btn:hover:before {
+  width: 100%;
+  height: 100%;
+}
+
+.btn:hover:after {
+  width: 100%;
+  height: 100%;
+}
+
+.img {
   position: fixed;
 }
+
