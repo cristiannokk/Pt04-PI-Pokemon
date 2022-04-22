@@ -265,7 +265,7 @@ export function Create() {
                 {input.types?.map((el) => (
                   <p>
                     {el}
-                    <button onClick={(e) => handleDeleteType(el)}>X</button>
+                    <button onClick={(e) => handleDeleteType(el)}>Delete Type</button>
                   </p>
                 ))}
               </h5>

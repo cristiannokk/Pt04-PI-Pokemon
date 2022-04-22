@@ -14,8 +14,7 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      defaultValue: 'normal',
-      allowNull: true,
+      defaultValue: "This data was not found."
     }
   },
   { 
