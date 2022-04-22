@@ -23,7 +23,6 @@
   transition: 0.5s;
   /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
 }
-/* ff2121 */
 
 .btn:hover {
   background: #ff2121;
