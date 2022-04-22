@@ -71,8 +71,15 @@ async function allPokemon() {
   try {
     let apiPokemonInfo = await apiPokemon();
     let dbPokemonInfo = await dbPokemon();
+    // let totalPokemonInfo = [];
     const totalPokemonInfo = apiPokemonInfo.concat(dbPokemonInfo)
     
+    // if(!dbPokemonInfo){
+    //   totalPokemonInfo = [...apiPokemonInfo];
+    // }
+    // else{
+    //   totalPokemonInfo = [...dbPokemonInfo, ...apiPokemonInfo];
+    // }
     return totalPokemonInfo;
   } catch (error) {
     return error;
