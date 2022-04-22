@@ -5,40 +5,36 @@ const { Pokemon, Type } = require('../db')
 
 // -------------->> POKEMONS DESDE LA API <<--------------
 async function apiPokemon() {
-  try {
-    let savePokemons = [];
-    
-    for (let i = 1; i <= 40; i++) { 
-      savePokemons.push(axios.get(URL + i)); // entra a cada elemento y le hace un get
-    }
-    return await Promise.all(savePokemons) // devuelvo una nueva promesa con los datos de cada pokemon
-    .then((res) => {
-      const pokemonApi = res.map(savePokemons=> { //traigo las propiedades de cada pokemon dentro de una nueva array
-        return {
-          id: savePokemons.data.id,
-          name: savePokemons.data.name,
-          image: savePokemons.data.sprites.other.home.front_default,
-          types: savePokemons.data.types.map(e => e.type.name),
-          hp: savePokemons.data.stats[0].base_stat,
-          attack: savePokemons.data.stats[1].base_stat,
-          defense: savePokemons.data.stats[2].base_stat,
-          speed: savePokemons.data.stats[5].base_stat,
-          height: savePokemons.data.height,
-          weight: savePokemons.data.weight,
-        };
-      });
-      return pokemonApi;
-    });
-  } catch (err) {
-    console.log(err);
-  }
+    const savePokemons = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=40").then(data => {
+      return data.data.results;
+    })
+    .then(data => {
+      return Promise.all(data.map(res => axios.get(res.url)))
+    })
+    .then(data => {
+      return data.map(res => res.data)
+    })
+    let arrayPokeApi = savePokemons.map(result => {
+      return {        
+        id: result.id,
+        name: result.name,
+        types: result.types.map((t) => t.type.name), //lOS TYPES ESTAN EN SU PROPIEDAD NAME
+        image: result.sprites.other.home.front_default,
+        hp: result.stats[0].base_stat,
+        attack: result.stats[1].base_stat,
+        defense: result.stats[2].base_stat,
+        speed: result.stats[3].base_stat,
+        height: result.height,
+        weight: result.weight,
+      }
+    })
+    return arrayPokeApi
 };
-
 // -------------->> POKEMONS DESDE LA DB <<--------------
 
 async function dbPokemon() {
   try {
-    const dbPokemonInfo = await Pokemon.findAll({ // traigo todo de la tabla pokemon con la relacion con type
+    const dbPokemonInfo = await Pokemon.findAll({ // TRAIGO TODO DE LA TABLA POKEMON CON LA RELACION CON TYPE
       include: [
         {
           model: Type,
@@ -48,19 +44,8 @@ async function dbPokemon() {
           },
         },
       ],
-      // through: { attributes: ["name"] },
-      // attributes: ["id", "name", "image", "attack"],
     });
     return dbPokemonInfo  
-    // if(dbPokemonInfo){
-    //   return dbPokemonInfo.map((pokemon) => {
-    //     const typeArr = pokemon.dataValue.types.map((e) => e.name)
-    //     return {
-    //       ...pokemon.dataValue,
-    //       types: typeArr,
-    //     }
-    //   });
-    // }
   } catch (error) {
     console.log(error)
   }
@@ -69,123 +54,38 @@ async function dbPokemon() {
 
 async function allPokemon() {
   try {
-    let apiPokemonInfo = await apiPokemon();
-    let dbPokemonInfo = await dbPokemon();
-    // let totalPokemonInfo = [];
-    const totalPokemonInfo = apiPokemonInfo.concat(dbPokemonInfo)
-    
-    // if(!dbPokemonInfo){
-    //   totalPokemonInfo = [...apiPokemonInfo];
-    // }
-    // else{
-    //   totalPokemonInfo = [...dbPokemonInfo, ...apiPokemonInfo];
-    // }
+    let apiPokemonInfo = await apiPokemon();// DATOS DE LA API 
+    let dbPokemonInfo = await dbPokemon(); // DATOS DE LA DB
+    const totalPokemonInfo = apiPokemonInfo.concat(dbPokemonInfo) // CONCATENANDO AMBAS
     return totalPokemonInfo;
   } catch (error) {
     return error;
   }
 };
-// -------------->> BUSCAR POKEMON POR NOMBRE <<--------------
-
-async function searchPokemonName(name) {
-  try {
-    // console.log("--FLAG SEARCH NOMBRE--");
-    let findNamePokemon = await Pokemon.findOne({
-      where: {
-        name: name.toLowerCase(),
-      },
-      include: [
-        {
-          model: Type,
-          as: "types",
-          attributes: ["name"],
-          through: {
-            attributes: [],
-          },
-        },
-      ],
-      through: { attributes: ["name"] },
-      attributes: ["id", "name", "image", "attack", "defense", "speed", "height", "weight"],
-    });
-    // console.log("--FLAG SEARCH NAME DB--");
-    if (findNamePokemon) {
-      let { dataValues } = findNamePokemon;
-      dataValues.types = dataValues.types.map((t) => t.name);
-      return dataValues;
-    } else {
-      // console.log("--FLAG SEARCH NAME API--");
-
-      let pokeNameAPI = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${name}`
-      );
-      let nameAPIPokemon = {
-        id: pokeNameAPI.data.id,
-        name: pokeNameAPI.data.name,
-        types: pokeNameAPI.data.types.map((t) => t.type.name),
-        image: pokeNameAPI.data.sprites.other.home.front_default,
-        hp: pokeNameAPI.data.stats[0].base_stat,
-        attack: pokeNameAPI.data.stats[1].base_stat,
-        defense: pokeNameAPI.data.stats[2].base_stat,
-        speed: pokeNameAPI.data.stats[5].base_stat,
-        height: pokeNameAPI.data.height,
-        weight: pokeNameAPI.data.weight,
-      };
-      // console.log(nameAPIPokemon);
-
-      return nameAPIPokemon;
-    }
-  } catch (error) {
-    return res.send({ alert: `"No se encuentra el Pokémon llamado ${name}` });
-  }
-};
-
-
 // -------------->> POKEMONS POR ID <<--------------
 
 async function allPokemonId(id) {
-  // petision de la id a la api
-
-  if(!id) {
-    res.send('Falta agregar una ID')
-  } 
-  // cantidad de pokemons = 898 => 3 digitos
-  else if (id.length > 4) {
-    res.send('La ID debe ser menor a 4 digitos')
-  }
-  // pokemons x ID desde db
   try {
-    if (id > 1200) {
+    if (id > 1125) {
       try {
         let dbPokemonById = await Pokemon.findByPk(id, {
           include: [
             {
               model: Type,
-              as: "types",
               attributes: ["name"],
               through: {
                 attributes: [],
               },
             },
           ],
-
-          through: { attributes: ["name"] },
-          attributes: [
-            "id",
-            "name",
-            "image",
-            "hp",
-            "attack",
-            "defense",
-            "speed",
-            "height",
-            "weight",
-          ],
+          through: { 
+            attributes: [] 
+          }
         });
         const { dataValues } = dbPokemonById;
         dataValues.types = dataValues.types.map((t) => t.name);
         if (dbPokemonById) return dataValues;
       } catch (error) {
-        // console.log(error);
         res.status(403)
       }
     } else {
@@ -216,5 +116,4 @@ async function allPokemonId(id) {
 module.exports = {
   allPokemon,
   allPokemonId,
-  searchPokemonName
 };
