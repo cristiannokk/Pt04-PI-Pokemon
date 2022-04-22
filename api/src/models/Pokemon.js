@@ -79,11 +79,6 @@ module.exports = (sequelize) => {
         max: 999
       }
     },
-    createdPokemon: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
-      allowNull: false,
-    },
   },{ 
     timestamps: false 
   });
