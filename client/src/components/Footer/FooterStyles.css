@@ -1,21 +1,42 @@
-.footer-container{
+.footer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15px;
   padding-bottom: 15px;
-  border-top: #C2BDBD solid 2px;
-  background-color: #ffffff;
+  border-top: #10ff4c solid 2px;
   position: relative;
   bottom: 0;
   width: 100%;
-  height: 40px;
-
-  
+  height: 38px;
+  margin-top: 5px;
+  animation: flash 0.5s infinite alternate;
+  /* box-shadow: 0 0 0.8rem #bc13fe, 0 0 0.6rem #0be828, 0 0 1rem #bc13fe, 0 0 1rem #bc13fe; */
 }
-.footer-span{
+
+.footer-span {
   font-weight: 600;
-  color: #181818;
+  color: rgb(0, 240, 212);
   margin-top: 15px;
   font-size: 12px;
+}
+
+@keyframes flash {
+  20%,
+  40%,
+  60%,
+  80%,
+  90%,
+  100% {
+    text-shadow: -0.2rem -0.2rem 1rem rgb(0, 255, 42), 0.2rem 0.2rem 1rem #bc13fe,
+      0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color),
+      0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
+      0 0 10rem var(--neon-text-color);
+  }
+
+  5%,
+  10%,
+  15% {
+    text-shadow: none;
+    box-shadow: none;
+  }
 }

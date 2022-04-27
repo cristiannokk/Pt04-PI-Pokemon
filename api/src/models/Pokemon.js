@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING(2000),
       allowNull: true,
-      defaultValue: "https://as01.epimg.net/meristation/imagenes/2020/02/14/noticias/1581656735_610153_1581656812_noticia_normal.jpg"
+      defaultValue: "https://www.models-resource.com/resources/big_icons/11/10411.png"
     },
     hp: {
       type: DataTypes.INTEGER,
@@ -62,7 +62,7 @@ module.exports = (sequelize) => {
       }
     },
     height: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: true,
       defaultValue: 1,
       validate: {
@@ -71,7 +71,7 @@ module.exports = (sequelize) => {
       }
     },
     weight:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: true,
       defaultValue: 1,
       validate: {

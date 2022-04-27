@@ -37,50 +37,35 @@ async function getPokemonById(req, res) {
 //================== POST ==================
 var idRef = 1126;
 async function createPokemon(req, res){
-  const {name, image, hp, attack, defense, speed, height, weight, type} = req.body
-
-  // validando name 
-  if(!name) return res.status(404).send({err: 'Error, no ingresaste el name del Pokemon'});
+  try {
+    let { name, image, hp, attack, defense, speed, height, weight, types} = req.body //Datos que necesito pedir
   
-  // nota:findOne mantiene el error por separado
-  try{
-    let findOrCreatePokemon = await Pokemon.findOne({
-      where: {
-        name: name.toLowerCase()
-      }
+    const newPokemon = await Pokemon.create({
+      id: idRef++,
+      name,
+      image,
+      hp,
+      attack,
+      defense,
+      speed,
+      height,
+      weight,
     });
-    // verificanndo si el name esta disponible 
-    if(findOrCreatePokemon) 
-      return res.json({msg: 'Ya existe un Pokemon con ese nombre'})
   
-    let newPokemon = await Pokemon.create({
-        id: ++idRef,
-        name: name.toLowerCase(),
-        image: image,
-        type: type,
-        hp: hp,
-        attack: attack,
-        defense: defense,
-        speed: speed,
-        height: height,
-        weight: weight,
-    })
-
-    //agregando el Types:
-    if(Array.isArray(type) && type.length){ // consulto si llega un arreglo al types y si tiene algo.
-      let addType = await Promise.all( 
-        type.map(e => { // agarro la data del type y verifico que cada elemento exista en la tabla de tipos
-          return Type.findOne({where: {name: e}})
-        })            
-      );
-      await newPokemon.setTypes(addType); // se agregan los tipos una vez resuelta la promesa
-      
-      return res.status(201).send({ msg: `El Pokemon ${newPokemon.name} fue creado con éxito!.` });
+    if (!name) return res.json({ info: "El nombre es obligatorio" });
+  
+    if(Array.isArray(types) && types.length){ //Consulto si lo que me llega en TYPES, es un arreglo y si tiene algo adentro.
+      let dbTypes = await Promise.all( //Armo una variable que dentro tendra una resolucion de promesas
+        types.map((e) => { // Agarro la data de types y le hago un map para verificar que cada elemento exista en 
+          return Type.findOne({where:{ name: e}}) // nuestra tabla de tipos
+        })
+      )
+     await newPokemon.setTypes(dbTypes) //Una vez que se resuelva la promesa del Pokemon.create, le agrego los tipos
+  
+     return res.send("Pokemon creado exitosamente");
     }
-    
-  } catch (error) {
-    res.status(404).send("error en data");
-    // console.log((error))
+  } catch (err) {
+    res.status(400).send("Error en data");
   }
 };
 

@@ -21,6 +21,7 @@
   font-size: 25px;
   overflow: hidden;
   transition: 0.5s;
+  font-weight: 600;
   /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
 }
 
@@ -71,5 +72,6 @@
 
 .img {
   position: fixed;
+  /* margin-top: -235px; */
 }
 

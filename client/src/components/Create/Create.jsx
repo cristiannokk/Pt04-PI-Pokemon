@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { NavBar } from "../Nav/NavBar";
+import { useNavigate, Link } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 import { postPokemon, getTypes, getAllPokemons,} from "../../redux/action.pokemons";
 import { useDispatch, useSelector } from "react-redux";
 import "./CreateStyles.css";
+import imageCreate from "../../assets/ImageCreate.png"
 
 //Validacion del formulario:
 import { validate } from "./validateForm";
@@ -34,29 +34,51 @@ export function Create() {
     // console.log(getTypes)
   }, [dispatch]);
 
-  const handleInputChange = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
-    setErrorForm(validate({ ...input, [e.target.name]: e.target.value }));
+  function handleInputChange(e) { // el name
+    setInput({ 
+      ...input, 
+      [e.target.name]: e.target.value 
+    });
+    setErrorForm(
+      validate({ 
+        ...input, 
+        [e.target.name]: e.target.value }));
   };
 
-  const handleDeleteType = (el) => {
+  function handleDeleteType(el) { // borrar el type
     setInput({
       ...input,
       types: input.types.filter((type) => type !== el),
     });
   };
 
-  const handleTypesChange = (e) => {
-    setInput({ ...input, types: [...input.types, e.target.value] });
+  function handleTypesChange(e) { // agregar el type
+    setInput({ 
+      ...input, 
+      types: [...input.types, e.target.value] 
+    });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  function handleSubmit(e) {
+    // e.preventDefault();
+    // dispatch(postPokemon(input))
+    // alert("Pokemon creado con exito")
+    // setInput({
+    //   name: ``,
+    //   hp: ``,
+    //   attack: ``,
+    //   defense: ``,
+    //   speed: ``,
+    //   height: ``,
+    //   weight: ``,
+    //   types: ``,
+    // });
+    // navigate(`/pokemons/index`)
+    
     try {
       let findName = totalPokemon.filter(
         (e) => e.name.toLowerCase() === input.name.toLowerCase()
-      );
-
+      )
       if (!findName) {
         return alert("Ya existe un pokemon con este nombre. ¡Cambialo!");
       } else if (Object.keys(errors).length) {
@@ -71,12 +93,11 @@ export function Create() {
           height: input.height,
           weight: input.weight,
           types: input.types,
-          createdPokemon: true,
         };
         console.log(newPokemon);
         dispatch(postPokemon(newPokemon));
       }
-
+      alert(`El Pokémon fue creado con éxito.`)
       setInput({
         name: ``,
         hp: ``,
@@ -87,10 +108,8 @@ export function Create() {
         weight: ``,
         types: ``,
       });
-
-      return (
-        alert(`El Pokémon fue creado con éxito.`), navigate(`/pokemons/index`)
-      );
+      navigate(`/pokemons/index`)
+      
     } catch (error) {
       console.log(error);
       return alert(
@@ -98,17 +117,15 @@ export function Create() {
       );
     }
   };
-  console.log(input);
+  // console.log(input);
   return (
-    <div class="create_container">
-      <header>
-        <NavBar />
-      </header>
-      <h1 class="title">¡Crea un nuevo Pokémon!</h1>
-      <form class="form" onSubmit={handleSubmit}>
-        <div class="info-form">
+    <div className="create_container">
+        <img className="imgCreate" src={imageCreate} alt="" />
+      <h1 className="title">¡Crea tu Pokémon!</h1>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="info-form">
           <div>
-            <label>Nombre</label>
+            <label>NAME</label>
             <input
               onChange={handleInputChange}
               value={input.name}
@@ -117,13 +134,13 @@ export function Create() {
               placeholder="¿Cómo se llama el Pokémon?..."
             />
             {errors.name && (
-              <div class="errors">
+              <div className="errors">
                 <div id="name">{errors.name}</div>
               </div>
             )}
           </div>
           <div>
-            <label>Hp</label>
+            <label>HP</label>
             <input
               onChange={handleInputChange}
               value={input.hp}
@@ -133,14 +150,12 @@ export function Create() {
               placeholder="Inserte el hp..."
             />
             {errors.hp && (
-              <div class="errors">
+              <div className="errors">
                 <div>{errors.hp}</div>
               </div>
             )}
           </div>
-          <label>
-            Ataque
-            <input
+          <label>ATTACK<input
               onChange={handleInputChange}
               value={input.attack}
               name="attack"
@@ -149,13 +164,13 @@ export function Create() {
               placeholder="Poder de ataque..."
             />
             {errors.attack && (
-              <div class="errors">
+              <div className="errors">
                 <div>{errors.attack}</div>
               </div>
             )}
           </label>
           <div>
-            <label>Defensa</label>
+            <label>DEFENSE</label>
             <input
               onChange={handleInputChange}
               value={input.defense}
@@ -165,13 +180,13 @@ export function Create() {
               placeholder="Poder de defensa.."
             />
             {errors.defense && (
-              <div class="errors">
+              <div className="errors">
                 <div>{errors.defense}</div>
               </div>
             )}
           </div>
           <div>
-            <label>Velocidad</label>
+            <label>SPEED</label>
             <input
               onChange={handleInputChange}
               value={input.speed}
@@ -181,13 +196,13 @@ export function Create() {
               placeholder="Inserta su velocidad..."
             />
             {errors.speed && (
-              <div class="errors">
+              <div className="errors">
                 <div>{errors.speed}</div>
               </div>
             )}
           </div>
           <div>
-            <label>Peso</label>
+            <label>WEIGHT</label>
             <input
               onChange={handleInputChange}
               value={input.weight}
@@ -197,13 +212,13 @@ export function Create() {
               placeholder="Inserta el peso (en kg)"
             />
             {errors.weight && (
-              <div class="errors">
+              <div className="errors">
                 <div>{errors.weight}</div>
               </div>
             )}
           </div>
           <div>
-            <label>Tamaño</label>
+            <label>HEIGHT</label>
             <input
               onChange={handleInputChange}
               value={input.height}
@@ -213,13 +228,13 @@ export function Create() {
               placeholder="Inserta el tamaño (cm)"
             />
             {errors.height && (
-              <div class="errors">
+              <div className="errors">
                 <div>{errors.height}</div>
               </div>
             )}
           </div>
           <div>
-            <label>Imagen</label>
+            <label>IMAGE</label>
             <input
               onChange={handleInputChange}
               value={input.image}
@@ -228,17 +243,17 @@ export function Create() {
               placeholder="Copia la url de la imagen..."
             />
             {errors.image && (
-              <div class="errors">
+              <div className="errors">
                 <div>{errors.image}</div>
               </div>
             )}
           </div>
           <div>
-            <label>Tipos</label>
+            <label>TYPE</label>
             {input.types.length === 0 ? (
-              <p>Seleciona dos tipos! </p>
+              <p>SELECT TWO TYPES! </p>
             ) : input.types.length > 2 ? (
-              <p> Maximos Tipos: 2 </p>
+              <p> Maximum Types: 2 </p>
             ) : null}
             <select
               value={input.types}
@@ -272,14 +287,31 @@ export function Create() {
             </div>
           </div>
         </div>
-        <button class="btn-create" type="submit">
-          Crear
+        <div className="BTNS">
+        <button className="btn-create" type="submit">
+          <a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Crear
+          </a>
         </button>
+          <Link to="/pokemons/index" style={{ textDecoration: "none" }}>
+            <a>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <li class="home">Home</li>
+            </a>
+          </Link>
+        </div>
       </form>
-
       <div>
         <Footer />
       </div>
     </div>
+
   );
 }

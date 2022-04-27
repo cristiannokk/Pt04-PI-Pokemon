@@ -18,7 +18,7 @@ export function AllPokemon() {
   let errorRender = useSelector((state) => state.errorRender);
 
   const [counterPokemon, setCounterPokemon] = useState(1);
-  const [pokemonPerPage /* setPokemonPerPage */] = useState(12);
+  const [pokemonPerPage ] = useState(12);
 
   const lastPokemon = counterPokemon * pokemonPerPage; // 1 * 12 = 12
   const firstPoke = lastPokemon - pokemonPerPage; // 12 - 12 = 0
@@ -47,7 +47,6 @@ export function AllPokemon() {
 
   const end = () => {
     setCounterPokemon(indexPages);
-    // window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   if (counterPokemon > indexPages) {
@@ -71,7 +70,7 @@ export function AllPokemon() {
       <div>
         <div class="main-pokemons-card">
           {pokemonData.length === 0 ? (
-            <p>Ups! No se encontraron Pokémones con estas caracteristicas.</p>
+            <p className="sinPokemon">No se encontraron Pokémones con estas caracteristicas.</p>
           ) : (
             pokemonData.map((p, index) => (
               <Link key={index} to={"/pokemons/" + p.id}>
@@ -94,13 +93,13 @@ export function AllPokemon() {
             {"<"}
           </button>
           <button onClick={back} class="pagination-button a">
-            Anterior
+            Previous
           </button>
           <p>
             {counterPokemon} de {indexPages}
           </p>
           <button onClick={next} class="pagination-button p">
-            Proximo
+            Next
           </button>
           <button onClick={end} class="pagination-button">
             {">"}

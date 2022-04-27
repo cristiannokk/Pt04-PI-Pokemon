@@ -22,7 +22,7 @@ export function Details() {
 
   if (!onePokemon.name) {
     return (
-      <div>
+      <div >
         <div>
           <NavBar />
         </div>

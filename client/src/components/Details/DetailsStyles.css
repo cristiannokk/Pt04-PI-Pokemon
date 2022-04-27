@@ -17,7 +17,7 @@
 }
 
 .pokeName{
-  font-family: "Rubik", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   text-align: center;
   font-weight: bold;
   font-size: 25px;
@@ -43,7 +43,7 @@
 }
 
 .description{
-  font-family: "Rubik", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   text-decoration: "inherit"; 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -57,7 +57,7 @@
   padding: 12px 25px 12px 25px;
   font-size: 12px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   text-emphasis-color: #FFFF;
   background: #8f3af6;
   margin-left: 45%;

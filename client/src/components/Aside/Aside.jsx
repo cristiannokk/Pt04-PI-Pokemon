@@ -9,7 +9,7 @@ import {
 } from "../../redux/action.pokemons";
 import "./AsideStyles.css";
 
-export function Aside(setCounterPokemon) {
+export function Aside() {
   const [, setOrder] = useState("");
   const [, setTypes] = useState("allPokemon");
 
@@ -56,8 +56,7 @@ export function Aside(setCounterPokemon) {
   return (
     <div>
       <aside class="aside-container">
-        <h3>Mostrar:</h3>
-        <div>
+        <div class= "ordenado">
           <label class="label">Ordenar por: </label>
           <select
             class="select"
@@ -92,8 +91,8 @@ export function Aside(setCounterPokemon) {
           </select>
         </div>
 
-        <div>
-          <label class="label">Filtrado por: </label>
+        <div class="filtrado">
+          <label class="label">Filter: </label>
           <select
             class="select"
             defaultValue="allOrigin"

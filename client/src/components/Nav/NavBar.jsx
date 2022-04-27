@@ -1,7 +1,7 @@
 import React from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
-import LogoPokemon from "../../assets/Logo Pokemon.png";
+import LogoPokemon from "../../assets/LogoPokemon.jpeg";
 import "./NavbarStyles.css";
 // import { NavLinks, OneLink } from "./MenuNavBarStyles";
 
@@ -14,11 +14,8 @@ export function NavBar() {
             <li class="link-route">Home</li>
           </Link>
           <Link to="/create" style={{ textDecoration: "inherit" }}>
-            <li class="link-route">Crear</li>
+            <li class="link-route">Create</li>
           </Link>
-          {/* <Link to={"/about"} style={{ textDecoration: "inherit" }}>
-            <li class="link-route">Sobre mi</li>
-          </Link> */}
         </div>
         <div class="branding">
           <img class="logo-pokemon" src={LogoPokemon} alt="Pokemon App Logo" />
