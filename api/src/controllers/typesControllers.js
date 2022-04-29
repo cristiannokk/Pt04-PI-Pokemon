@@ -1,27 +1,23 @@
 const axios = require("axios");
 const { Type } = require("../db.js");
-const URLTYPE = "https://pokeapi.co/api/v2/type";
 
 /////////////////////GET TYPES ///////////////////////////////////
 
 const getAllTypes = async (req, res) => {
-  try {
-    const getUrlType = await axios.get(URLTYPE);
-    //Llamado a la ruta Types de la API.
-    allTypes = getUrlType.data.results;
+  const tDataBase = await Type.findAll();
 
-    allTypes.forEach(e => {
-      Type.findOrCreate({
-        //Busca el type y si no encuentra, lo crea.
-        where: { name: e.name },
-      });
-    });
+    if(tDataBase.length === 0) {
+        try {
+            const types = await axios.get('https://pokeapi.co/api/v2/type')
+            for(let i=0; i<types.data.results.length; i++){
+                await Type.create({name: types.data.results[i].name});
+            }
+         } catch(error) {
 
-    //Traigo el resto de los Types
-    const allPokemonDbTypes = await Type.findAll();
-    res.status(200).send(allPokemonDbTypes);
-  } catch (error) {
-    res.status(404).send({ error: "Ouch! Ocurrio un error. " });
-  }
-};
+           return res.status(404).send('Se produjo un Error')
+         }
+        } else {
+            return res.status(200).json(tDataBase);
+        }
+}
 module.exports = getAllTypes;

@@ -124,14 +124,16 @@ export function Create() {
       <h1 className="title">¡Crea tu Pokémon!</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="info-form">
+
           <div>
-            <label>NAME</label>
+            <label for="name">Name:</label>
             <input
               onChange={handleInputChange}
               value={input.name}
               name="name"
               type="text"
-              placeholder="¿Cómo se llama el Pokémon?..."
+              className="input"
+              placeholder="insert pokémon name..."
             />
             {errors.name && (
               <div className="errors">
@@ -139,15 +141,17 @@ export function Create() {
               </div>
             )}
           </div>
+
           <div>
-            <label>HP</label>
+            <label>Hp:</label>
             <input
               onChange={handleInputChange}
               value={input.hp}
               name="hp"
               type="number"
+              className="input"
               min="1"
-              placeholder="Inserte el hp..."
+              placeholder="Insert your hp..."
             />
             {errors.hp && (
               <div className="errors">
@@ -155,29 +159,35 @@ export function Create() {
               </div>
             )}
           </div>
-          <label>ATTACK<input
+            
+          <div>
+          <label>Attack:</label>
+            <input
               onChange={handleInputChange}
               value={input.attack}
               name="attack"
               type="number"
               min="1"
-              placeholder="Poder de ataque..."
+              placeholder="Insert your attack power..."
+              className="input"
             />
             {errors.attack && (
               <div className="errors">
                 <div>{errors.attack}</div>
               </div>
             )}
-          </label>
+          </div>
+
           <div>
-            <label>DEFENSE</label>
+            <label>Defense:</label>
             <input
               onChange={handleInputChange}
               value={input.defense}
               name="defense"
               type="number"
               min="1"
-              placeholder="Poder de defensa.."
+              placeholder="Insert your defense power..."
+              className="input"
             />
             {errors.defense && (
               <div className="errors">
@@ -185,15 +195,17 @@ export function Create() {
               </div>
             )}
           </div>
+          
           <div>
-            <label>SPEED</label>
+            <label>Speed:</label>
             <input
               onChange={handleInputChange}
               value={input.speed}
               name="speed"
               type="number"
               min="1"
-              placeholder="Inserta su velocidad..."
+              placeholder="Insert your speed..."
+              className="input"
             />
             {errors.speed && (
               <div className="errors">
@@ -201,15 +213,17 @@ export function Create() {
               </div>
             )}
           </div>
+
           <div>
-            <label>WEIGHT</label>
+            <label>Weight</label>
             <input
               onChange={handleInputChange}
               value={input.weight}
               name="weight"
               type="number"
               min="1"
-              placeholder="Inserta el peso (en kg)"
+              placeholder="Insert your weight(kg)"
+              className="input"
             />
             {errors.weight && (
               <div className="errors">
@@ -217,15 +231,17 @@ export function Create() {
               </div>
             )}
           </div>
+
           <div>
-            <label>HEIGHT</label>
+            <label>Height:</label>
             <input
               onChange={handleInputChange}
               value={input.height}
               name="height"
               type="number"
               min="1"
-              placeholder="Inserta el tamaño (cm)"
+              placeholder="Insert your size(m)"
+              className="input"
             />
             {errors.height && (
               <div className="errors">
@@ -233,14 +249,16 @@ export function Create() {
               </div>
             )}
           </div>
+
           <div>
-            <label>IMAGE</label>
+            <label>Image:</label>
             <input
               onChange={handleInputChange}
               value={input.image}
               name="image"
               type="url"
-              placeholder="Copia la url de la imagen..."
+              placeholder="Paste the image url..."
+              className="input"
             />
             {errors.image && (
               <div className="errors">
@@ -248,63 +266,49 @@ export function Create() {
               </div>
             )}
           </div>
-          <div>
-            <label>TYPE</label>
-            {input.types.length === 0 ? (
-              <p>SELECT TWO TYPES! </p>
-            ) : input.types.length > 2 ? (
-              <p> Maximum Types: 2 </p>
-            ) : null}
-            <select
-              value={input.types}
-              name="types"
-              onChange={handleTypesChange}
-            >
-              <option value="types">-Tipos--</option>
-              {stateTypes.length > 0 &&
-                stateTypes
-                  .sort(function (a, b) {
-                    if (a.name < b.name) return -1;
-                    if (a.name > b.name) return 1;
-                    return 0;
-                  })
-                  .map((t) => (
-                    <option value={t.name} key={t.id}>
-                      {t.name}
-                    </option>
-                  ))}
-            </select>
 
-            <div>
-              <h5>
-                {input.types?.map((el) => (
-                  <p>
-                    {el}
-                    <button onClick={(e) => handleDeleteType(el)}>Delete Type</button>
-                  </p>
+          <div>
+            <label>Type:</label>
+            <p className="types-s">
+              <select 
+                onChange={handleTypesChange}
+                value={input.types}
+                name="types"
+                className="Typ"
+                >
+                {input.types.length === 0 ? (
+                <p>select up to two types! </p>
+                  ) : input.types.length > 2 ? (<p> Maximum Types: 2 </p>) : null}
+                {stateTypes.map((e) => (
+                  <option  value={e.name}>{e.name}</option>
                 ))}
-              </h5>
-            </div>
+              </select>
+            </p> 
+            <h5 className="deleteType">
+              {input.types?.map((el) => (
+                <p className="nameType">
+                  {el}
+                  <button className="btnDelete" onClick={(e) => handleDeleteType(el)}>delete</button>
+                </p>
+              ))}
+            </h5>
           </div>
+          
         </div>
         <div className="BTNS">
         <button className="btn-create" type="submit">
-          <a>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             Crear
-          </a>
         </button>
-          <Link to="/pokemons/index" style={{ textDecoration: "none" }}>
-            <a>
+          <Link className="btn-create" to="/pokemons/index" style={{ textDecoration: "none" }}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
-              <li class="home">Home</li>
-            </a>
+              Home
           </Link>
         </div>
       </form>

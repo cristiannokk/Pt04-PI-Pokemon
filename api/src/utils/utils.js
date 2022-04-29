@@ -38,7 +38,7 @@ async function dbPokemon() {
       include: [
         {
           model: Type,
-          attributes: ['name'],
+          attributes: ["name"],
           through: {
             attributes: [],
           },

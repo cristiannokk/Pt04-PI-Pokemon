@@ -6,7 +6,7 @@ import { Loading } from "../Loading/Loading";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { NavBar } from "../Nav/NavBar";
 import { Footer } from "../Footer/Footer";
-
+import  imgDetails from "../../assets/pokeFondo.jpg"
 import { getPokemonId, resetDetail } from "../../redux/action.pokemons";
 import "./DetailsStyles.css";
 
@@ -35,7 +35,7 @@ export function Details() {
     console.log(onePokemon);
     return (
       <div class="background">
-        <NavBar />
+        <img className="imgDetais" src={imgDetails} alt="" />
         <div>
           <div class="cardsDetails">
             <div>

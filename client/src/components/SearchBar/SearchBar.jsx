@@ -30,10 +30,10 @@ export function SearchBar() {
         class="input-search"
         onChange={(e) => handleInputChange(e)}
         type="text"
-        placeholder="¿Cómo se llama el Pokémon?"
+        placeholder="pokemon name"
       />
       <button class="btn-search" onClick={(e) => handleSubmit(e)} type="submit">
-        Buscar
+        Search
       </button>
     </div>
   );

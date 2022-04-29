@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Pokemon } from "../Pokemon/Pokemon";
-// import { Aside as Filter } from "../Aside/Aside";
 import {
   getAllPokemons,
   getTypes,
   resetDetail,
 } from "../../redux/action.pokemons";
 import { Loading } from "../Loading/Loading";
-// import { ErrorPage } from "../ErrorPage/ErrorPage";
 import "./AllPokemonsStyles.css";
 import { Link } from "react-router-dom";
 
@@ -79,7 +77,7 @@ export function AllPokemon() {
                   name={p.name}
                   types={p.types}
                   image={p.image}
-                  health={p.life}
+                  hp={p.hp}
                   defense={p.defense}
                   speed={p.speed}
                   id={p.id}
