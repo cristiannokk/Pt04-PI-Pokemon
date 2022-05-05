@@ -37,8 +37,8 @@ async function dbPokemon() {
     const dbPokemonInfo = await Pokemon.findAll({ // TRAIGO TODO DE LA TABLA POKEMON CON LA RELACION CON TYPE
       include: [
         {
-          model: Type,
           attributes: ["name"],
+          model: Type,
           through: {
             attributes: [],
           },

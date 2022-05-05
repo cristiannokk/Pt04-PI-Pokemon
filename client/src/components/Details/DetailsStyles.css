@@ -1,7 +1,5 @@
-.background{
-  background-repeat: no-repeat;
-  background-position: 70% ;
-  background-size: cover;
+.background {
+  padding-top: 10%;
 }
 
 .imgDetais {
@@ -10,78 +8,177 @@
   height: 100%;
 }
 
-.cardsDetails{
-  max-width: 700px;
-  height: 480px;
-  margin-right: 30%;
-  margin-left: 30%;
+.cardsDetails {
+  max-width: 35%;
+  height: 65%;
   display: flow-root;
-  box-shadow: 4px 4px .6em #104890, -5px 0 .6em #f63a95;
   position: relative;
   margin: auto;
-  background: transparent;
+  margin-top: auto;
+  background: #11111194;
+  border: none;
+  z-index: 0;
+  border-radius: 5px;
+  margin-top: -50px;
 }
 
-.pokeName{
+.cardsDetails:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.cardsDetails:before {
+  opacity: 1;
+}
+
+.cardsDetails:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+.pokeName {
   font-family: 'Exo 2', sans-serif;
   text-align: center;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 45px;
   margin-top: 14px;
   padding-top: 16px;
+  color: #ff02a8;
 }
 
 .types{
-  display: flex;
-  flex-direction: column;
-  margin-left: 82%;
-  margin-top: 3px;
   font-weight: bold;
-  font-size: 10px;
-  color: red;
+  font-size: 36px;
+  color: #ff02a8;
+  align-content: center;
+  position: relative;
+  text-align: center;
 }
 
 .pokeImage {
   max-width: 200px;
   max-height: 200px;
   margin: auto;
-  padding-left: 180px;
+  /* padding-left: 180px; */
   position: relative;
+  align-content: center;
+  display: flex;
 }
 
-.description{
-  font-family: 'Exo 2', sans-serif;
-  text-decoration: "inherit"; 
+.description {
+  font-family: "Times New Roman", Times, serif;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 0.2fr;
-  grid-column-gap: 3px;
-  grid-row-gap: 2px;
-  margin-left: 23%;
-  color: red;
+  grid-row-gap: 1px;
+  margin-left: 20%;
+  color: #02ffc4;
+  text-shadow: 
+  0 0 4px rgb(2, 0, 0), 
+  0 0 11px #000, 
+  0 0 19px rgb(255, 3, 234), 
+  0 0 40px rgb(255, 3, 234), 
+  0 0 80px #2000ff, 
+  0 0 90px rgb(255, 3, 234), 
+  0 0 90px #f00, 
+  0 0 150px rgb(255, 3, 234);
 }
 
-.button-home{
-  padding: 12px 25px 12px 25px;
-  font-size: 12px;
-  font-weight: 600;
+
+.buttonss { 
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: #bc13fe;
+  padding-top: 15px;
   font-family: 'Exo 2', sans-serif;
-  text-emphasis-color: #FFFF;
-  background: #8f3af6;
-  margin-left: 45%;
+}
+
+.button-home {
+  position: relative;
+  margin-left: 1%;
   margin-top: 1.5%;
-  border-radius: 5px;
+  z-index: 0;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   padding: 9px;
-  transition: 0.3s ease-in-out;
-}
-.button-home:hover {
-  color: #ffffff;
-  background: #b81c05;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: #bc13fe;
 }
 
-.linked{
+.button-home:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  border-radius: 10px;
+}
+
+.button-home:active {
+  color: #000
+}
+
+.button-home:active:after {
+  background: transparent;
+}
+
+.button-home:hover:before {
+  opacity: 1;
+}
+
+.button-home:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.linked {
   text-decoration: none;
-  color: #FFFF;
+  color: #FB02D4;;
 }

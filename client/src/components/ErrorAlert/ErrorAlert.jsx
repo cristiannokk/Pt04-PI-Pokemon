@@ -15,12 +15,12 @@ export function ErrorAlert({ msg = "Error. Return to home.", code }) {
   return (
     <div class="error_container">
       <img class="gifPikachu" src={imgError} alt="img error" />
-      <span>{code}</span>
+      <span class="errorCode">{code}</span>
       <p class="error">Error</p>
       <span class="spanError">{msg}</span>
       <div onClick={handleGoHome()}>
         <Link to="/pokemons/index">
-          <button class="btn-goHome">Ir a la pagina principal.</button>
+          <button class="btn-goHome">Go to the main page.</button>
         </Link>
       </div>
     </div>

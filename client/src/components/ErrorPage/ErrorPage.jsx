@@ -5,7 +5,7 @@ export function ErrorPage() {
   return (
     <div>
       <ErrorAlert
-        msg="Algo salio mal al cargar la informacion."
+        msg="Something went wrong."
         code="404"
       />
     </div>

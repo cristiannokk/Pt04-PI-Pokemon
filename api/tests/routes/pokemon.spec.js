@@ -20,4 +20,11 @@ describe('Pokemon routes', () => {
       agent.get('/pokemons').expect(200)
     );
   });
+  describe('GET /type', () => {
+    it('responds with 200', (done) =>{
+      agent.get('/type').expect(200);
+      done()
+    })
+  })
 });
+

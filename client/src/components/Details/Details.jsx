@@ -24,9 +24,6 @@ export function Details() {
     return (
       <div >
         <div>
-          <NavBar />
-        </div>
-        <div>
           <Loading />
         </div>
       </div>
@@ -34,9 +31,9 @@ export function Details() {
   } else if (onePokemon.length !== 0) {
     console.log(onePokemon);
     return (
-      <div class="background">
+      <div>
         <img className="imgDetais" src={imgDetails} alt="" />
-        <div>
+        <div class="background">
           <div class="cardsDetails">
             <div>
               <h3 class="pokeName">
@@ -50,31 +47,31 @@ export function Details() {
             </div>
             <div class="types">
               {onePokemon.types
-                ? onePokemon.types.map((e) => "  " + e).join(",")
+                ? onePokemon.types.map((e) => "  " + e).join(" - ")
                 : onePokemon.types}
             </div>
             <div class="description">
               <div>
-                <h4>{`Hp: ${onePokemon.hp} hp`}</h4>
+                <h4>{`HP: ${onePokemon.hp}`}</h4>
               </div>
               <div>
-                <h4>{`Ataque: ${onePokemon.attack} Pw`}</h4>
+                <h4>{`ATTACK: ${onePokemon.attack}`}</h4>
               </div>
               <div>
-                <h4>{`Defensa: ${onePokemon.defense} Pw`}</h4>
+                <h4>{`DEFENSE: ${onePokemon.defense}`}</h4>
               </div>
               <div>
-                <h4>{`Velocidad: ${onePokemon.speed} km/h`}</h4>
+                <h4>{`SPEED: ${onePokemon.speed}`}</h4>
               </div>
               <div>
-                <h4>{`Altura: ${onePokemon.height} cm`}</h4>
+                <h4>{`HEIGHT: ${onePokemon.height}`}</h4>
               </div>
               <div>
-                <h4>{`Peso: ${onePokemon.weight} kg`}</h4>
+                <h4>{`WEIGHT: ${onePokemon.weight}`}</h4>
               </div>
             </div>
           </div>
-          <div>
+          <div class="buttonss">
             <button class="button-home">
               <Link to="/pokemons/index" class="linked">
                 Volver al inicio

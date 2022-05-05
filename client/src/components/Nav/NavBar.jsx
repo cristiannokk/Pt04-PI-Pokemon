@@ -3,7 +3,6 @@ import { SearchBar } from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import LogoPokemon from "../../assets/LogoPokemon.jpeg";
 import "./NavbarStyles.css";
-// import { NavLinks, OneLink } from "./MenuNavBarStyles";
 
 export function NavBar() {
   return (

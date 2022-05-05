@@ -71,7 +71,7 @@ export function AllPokemon() {
             <p className="sinPokemon">No se encontraron Pokémones con estas caracteristicas.</p>
           ) : (
             pokemonData.map((p, index) => (
-              <Link key={index} to={"/pokemons/" + p.id}>
+              <Link key={index} to={"/pokemons/" + p.id} class= "linked">
                 <Pokemon
                   key={index}
                   name={p.name}

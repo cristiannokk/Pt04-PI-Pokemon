@@ -13,8 +13,8 @@ export function validate(input) {
     errors.name =
       "El nombre no puede contener numeros o caracteres especiales.";
   }
-  if (input.name.length > 23) {
-    errors.name = "El nombre no puede exceder los 23 caracteres";
+  if (input.name.length > 20) {
+    errors.name = "El nombre no puede exceder los 20 caracteres";
   }
 
   //Image:

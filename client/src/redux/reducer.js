@@ -68,7 +68,9 @@ export function reducer(state= initialState, action){
                   e.types.map((type) => type)[0] === action.payload ||
                   e.types.map((type) => type)[1] === action.payload
               );
-  
+
+            // ? pokemons
+            // : pokemons.filter((e) => e.types.includes(action.payload));
         return {
           ...state,
           backUp: typesFiltered,
@@ -82,9 +84,9 @@ export function reducer(state= initialState, action){
   
           let resultado =
             value === "pokemonApi"
-              ? pokemon.id < 1199
+              ? pokemon.id < 1125
               : value === "createdPokemon"
-              ? pokemon.id > 1200
+              ? pokemon.id > 1125
               : false;
           // console.log(resultado)
           return resultado;

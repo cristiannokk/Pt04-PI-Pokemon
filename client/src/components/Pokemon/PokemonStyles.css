@@ -9,6 +9,7 @@
   margin: auto;
   text-decoration: none;
 }
+
 .card-pokemon-container::before {
   content: "";
   position: absolute;
@@ -57,11 +58,10 @@
   font-size: 20px;
   position: relative;
   z-index: 10;
-  text-decoration-line: underline
 }
 
 .poke-name:hover {
-    color: #3af63a
+  color: #3af63a
 }
 
 .poke-types {
@@ -72,5 +72,4 @@
   margin: auto;
   position: relative;
   z-index: 10;
-  text-decoration-line: underline
 }

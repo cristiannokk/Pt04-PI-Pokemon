@@ -10,6 +10,8 @@
   width: 30%;
   text-align: center;
   height: 20px;
+  background-color: #00ffffe3;
+  border-color: #eb05ff;
 }
 
 .form {
@@ -23,7 +25,7 @@
 	height: 660px;
 	padding: 40px;  
 	margin: 0px;
-	background:#333333ab;
+	background:#000000ab;
 	margin-left: auto;
 	margin-right:auto;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.438);
@@ -43,17 +45,71 @@
     10px 0 80px #0ff; 
 }
 
+.title2 {
+  font-family: 'Exo 2', sans-serif;
+  position: absolute;
+  font-weight: bold;
+  font-size: 35px;
+  margin-top: 10px;
+  padding-top: 802px;
+  color: rgb(0, 0, 0);
+  justify-content: center;
+  display: flex;
+  animation: pulsate 0.45s ease-in-out infinite alternate;
+  padding-left: 1497px;
+}
+
 .title {
   font-family: 'Exo 2', sans-serif;
   position: absolute;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 35px;
   margin-top: 10px;
-  padding-top: 6px;
-  color:rgb(0, 240, 212);
+  padding-top: 21px;
+  color:rgb(0, 0, 0);
   justify-content: center;
   display: flex;
+  animation: pulsate 0.65s ease-in-out infinite alternate; 
 }
+
+@keyframes pulsate {
+  100% {
+    text-shadow:  
+    0 0 4px rgb(1, 0, 0),
+    0 0 11px rgb(0, 217, 255),
+    0 0 19px rgb(0, 217, 255),
+    0 0 40px #f0f,
+    0 0 80px #f0f,
+    0 0 90px #f0f,
+    0 0 100px #f0f,
+    0 0 150px #f0f;;
+  }
+  50% {
+    text-shadow:
+      0 0 4px rgb(1, 0, 0),
+      0 0 10px #f0f,
+      0 0 18px #f0f,
+      0 0 38px #f0f,
+      0 0 73px #f0f,
+      0 0 80px rgb(0, 217, 255),
+      0 0 94px rgb(0, 217, 255),
+      0 0 140px rgb(0, 217, 255);
+  }
+
+  0% {
+    text-shadow:
+      0 0 4px rgb(1, 0, 0),
+      0 0 10px rgb(0, 241, 56),
+      0 0 18px rgb(0, 241, 56),
+      0 0 38px #f0f,
+      0 0 73px #f0f,
+      0 0 80px rgb(0, 241, 56),
+      0 0 94px rgb(0, 241, 56),
+      0 0 140px rgb(0, 241, 56);
+  }
+}
+
+
 .twoTypes { 
   color: rgb(0, 240, 212);
 }
@@ -119,19 +175,20 @@ label {
   padding-left: 15px;
   text-indent: -15px;
   font-size: 20px;
-	color: #000;
+	color: #eb00ff;
 	outline: none;
   display: flex;
   justify-content: center;
   text-shadow:
-    0 0 4px #fff,
-    0 0 11px #fff,
-    0 0 19px #fff,
-    0 0 40px #0fa,
-    0 0 80px #0fa,
-    0 0 90px #0fa,
-    0 0 100px #0fa,
-    0 0 150px #0fa;
+  0 0 2px #eb00ff, 
+  0 0 11px rgb(0, 0, 0), 
+  0 0 19px #05f9e2, 
+  0 0 40px #0fa, 
+  0 0 80px #0fa, 
+  0 0 90px #0fa, 
+  0 0 100px #0fa, 
+  0 0 150px #0fa;
+  filter: saturate(800%);
 }
 
 .BTNS {

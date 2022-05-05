@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
@@ -121,7 +121,8 @@ export function Create() {
   return (
     <div className="create_container">
         <img className="imgCreate" src={imageCreate} alt="" />
-      <h1 className="title">¡Crea tu Pokémon!</h1>
+      <h1 className="title">¡create your pokemon!</h1>
+      <h1 className="title2">¡create your pokemon!</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="info-form">
 

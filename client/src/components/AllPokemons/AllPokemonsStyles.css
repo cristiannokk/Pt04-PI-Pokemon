@@ -74,3 +74,7 @@
   -webkit-text-stroke-color: rgb(248, 4, 183);
   text-shadow: 0 0 15px #cd00f6;
 }
+
+.linked {
+  text-decoration: none;
+}

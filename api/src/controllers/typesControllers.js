@@ -13,7 +13,6 @@ const getAllTypes = async (req, res) => {
                 await Type.create({name: types.data.results[i].name});
             }
          } catch(error) {
-
            return res.status(404).send('Se produjo un Error')
          }
         } else {
