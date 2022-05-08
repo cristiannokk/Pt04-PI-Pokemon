@@ -59,22 +59,7 @@ export function Create() {
     });
   };
 
-  function handleSubmit(e) {
-    // e.preventDefault();
-    // dispatch(postPokemon(input))
-    // alert("Pokemon creado con exito")
-    // setInput({
-    //   name: ``,
-    //   hp: ``,
-    //   attack: ``,
-    //   defense: ``,
-    //   speed: ``,
-    //   height: ``,
-    //   weight: ``,
-    //   types: ``,
-    // });
-    // navigate(`/pokemons/index`)
-    
+  function handleSubmit(e) {    
     try {
       let findName = totalPokemon.filter(
         (e) => e.name.toLowerCase() === input.name.toLowerCase()
@@ -106,7 +91,7 @@ export function Create() {
         speed: ``,
         height: ``,
         weight: ``,
-        types: ``,
+        types: [],
       });
       navigate(`/pokemons/index`)
       
@@ -223,7 +208,7 @@ export function Create() {
               name="weight"
               type="number"
               min="1"
-              placeholder="Insert your weight(kg)"
+              placeholder="Insert your weight..."
               className="input"
             />
             {errors.weight && (
@@ -241,7 +226,7 @@ export function Create() {
               name="height"
               type="number"
               min="1"
-              placeholder="Insert your size(m)"
+              placeholder="Insert your size..."
               className="input"
             />
             {errors.height && (
@@ -270,16 +255,18 @@ export function Create() {
 
           <div>
             <label>Type:</label>
-            <p className="types-s">
+            {input.types.length === 0 ? (
+              <p className="selectType">Select up to two types! </p>
+            ) : input.types.length > 2 ? (
+              <p className="selectType"> Maximum types: 2 </p>
+            ) : null} 
+              <p className="types-s">
               <select 
-                onChange={handleTypesChange}
                 value={input.types}
                 name="types"
                 className="Typ"
+                onChange={handleTypesChange}
                 >
-                {input.types.length === 0 ? (
-                <p>select up to two types! </p>
-                  ) : input.types.length > 2 ? (<p> Maximum Types: 2 </p>) : null}
                 {stateTypes.map((e) => (
                   <option  value={e.name}>{e.name}</option>
                 ))}
@@ -302,14 +289,14 @@ export function Create() {
             <span></span>
             <span></span>
             <span></span>
-            Crear
+            Create
         </button>
           <Link className="btn-create" to="/pokemons/index" style={{ textDecoration: "none" }}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Home
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Home
           </Link>
         </div>
       </form>

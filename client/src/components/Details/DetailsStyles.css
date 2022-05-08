@@ -85,7 +85,6 @@
   max-width: 200px;
   max-height: 200px;
   margin: auto;
-  /* padding-left: 180px; */
   position: relative;
   align-content: center;
   display: flex;
@@ -129,7 +128,6 @@
   margin-top: 1.5%;
   z-index: 0;
   border-radius: 10px;
-  border: none;
   cursor: pointer;
   padding: 9px;
   display: flex;
@@ -158,8 +156,8 @@
 .button-home:active {
   color: #000
 }
-
 .button-home:active:after {
+
   background: transparent;
 }
 

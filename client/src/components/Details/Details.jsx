@@ -74,12 +74,12 @@ export function Details() {
           <div class="buttonss">
             <button class="button-home">
               <Link to="/pokemons/index" class="linked">
-                Volver al inicio
+                Back to top
               </Link>
             </button>
             <button class="button-home">
               <Link to="/create" class="linked">
-                Crear un Pokémon
+                Create a pokemon
               </Link>
             </button>
           </div>

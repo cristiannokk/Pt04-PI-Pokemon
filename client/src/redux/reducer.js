@@ -22,7 +22,7 @@ const initialState = {
   errorRender: [],
 }
 
-export function reducer(state= initialState, action){
+export function rootReducer(state= initialState, action){
   switch(action.type){
     case GET_ALL_POKEMONS:
       return {
@@ -59,18 +59,11 @@ export function reducer(state= initialState, action){
         return { ...state, types: action.payload };
       
       case FILTER_BY_TYPES:
-        const pokemons = state.filter;
+        const pokemons = state.pokemons;
         const typesFiltered =
           action.payload === "allTypes"
-            ? pokemons
-            : pokemons.filter(
-                (e) =>
-                  e.types.map((type) => type)[0] === action.payload ||
-                  e.types.map((type) => type)[1] === action.payload
-              );
-
-            // ? pokemons
-            // : pokemons.filter((e) => e.types.includes(action.payload));
+          ? pokemons
+          : pokemons.filter((e) => e.types.includes(action.payload));
         return {
           ...state,
           backUp: typesFiltered,
@@ -81,10 +74,9 @@ export function reducer(state= initialState, action){
         // console.log(action)
         const filterByOrigin = state.pokemons.filter((pokemon) => {
           // console.log(typeof pokemon.id === "string")
-  
           let resultado =
             value === "pokemonApi"
-              ? pokemon.id < 1125
+              ? pokemon.id < 1000
               : value === "createdPokemon"
               ? pokemon.id > 1125
               : false;

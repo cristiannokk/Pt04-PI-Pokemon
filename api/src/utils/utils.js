@@ -35,18 +35,16 @@ async function apiPokemon() {
 async function dbPokemon() {
   try {
     const dbPokemonInfo = await Pokemon.findAll({ // TRAIGO TODO DE LA TABLA POKEMON CON LA RELACION CON TYPE
-      include: [
-        {
+      include:{
           attributes: ["name"],
           model: Type,
           through: {
             attributes: [],
           },
         },
-      ],
     });
     return dbPokemonInfo  
-  } catch (error) {
+  }catch (error) {
     console.log(error)
   }
 }

@@ -73,13 +73,6 @@ async function createPokemon(req, res){
 
      return res.send("Pokemon creado exitosamente");
     }
-  
-    // let typePokemon = await Type.findAll({
-    //   where: { name: types },
-    //   default: { name: types }
-    // })
-    // await newPokemon.addTypes(typePokemon)
-    // return res.send("El Pokemon fue creado exitosamente");
   } catch (err) {
     console.log(err)
     res.status(400).send("Error en data");

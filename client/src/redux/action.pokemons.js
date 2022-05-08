@@ -36,6 +36,7 @@ export function getAllPokemons() {
     }
   };
 }
+
 export function getNamePokemon(name) {
   return async function (dispatch) {
     try {
@@ -59,7 +60,7 @@ export function getPokemonId(id) {
       let jsonPokemonID = await axios.get(
         `http://localhost:3001/pokemons/${id}`
       );
-      console.log(jsonPokemonID);
+      // console.log(jsonPokemonID);
       return dispatch({
         type: GET_DETAILS,
         payload: jsonPokemonID.data,
@@ -169,3 +170,4 @@ export function filterByTypes(payload) {
     return alert("Error: falló el filtro de este Type. ¡Intenta de nuevo!");
   }
 }
+
