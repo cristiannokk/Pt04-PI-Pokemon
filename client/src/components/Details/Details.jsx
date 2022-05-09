@@ -23,6 +23,7 @@ export function Details() {
   if (!onePokemon.name) {
     return (
       <div >
+        <NavBar/>
         <div>
           <Loading />
         </div>
@@ -73,7 +74,7 @@ export function Details() {
           </div>
           <div class="buttonss">
             <button class="button-home">
-              <Link to="/pokemons/index" class="linked">
+              <Link to="/pokemons/" class="linked">
                 Back to top
               </Link>
             </button>

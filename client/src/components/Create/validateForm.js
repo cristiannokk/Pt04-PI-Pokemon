@@ -13,15 +13,15 @@ export function validate(input) {
     errors.name =
       "El nombre no puede contener numeros o caracteres especiales.";
   }
-  if (input.name.length > 20) {
-    errors.name = "El nombre no puede exceder los 20 caracteres";
+  if (input.name.length > 15) {
+    errors.name = "El nombre no puede exceder los 15 caracteres";
   }
 
   //Image:
 
   if (input.image && urlOK.test(input.image)) {
     errors.image = "Debes ingresar una URL valida";
-  }
+  } 
 
   //Hp
 

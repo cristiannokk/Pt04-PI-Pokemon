@@ -9,7 +9,7 @@ export function LandingPage() {
       <img class="img" src={imgLanding} alt="" />
     <div>
     </div>
-      <Link to="/pokemons/index">
+      <Link to="/pokemons/">
         <button className="btn">INGRESAR</button>
       </Link>
     </div>

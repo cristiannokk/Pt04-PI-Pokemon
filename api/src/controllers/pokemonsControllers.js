@@ -63,13 +63,13 @@ async function createPokemon(req, res){
     });
   
     if (!name) return res.json({ info: "El nombre es obligatorio" });
-    if(Array.isArray(types) && types.length){ //Consulto si lo que me llega en TYPES, es un arreglo y si tiene algo adentro.
+    if(Array.isArray(types) && types.length){ //Consulto si lo que me llega en types es un arreglo y si tiene algo adentro.
       let dbTypes = await Promise.all( //Armo una variable que dentro tendra una resolucion de promesas
-        types.map((e) => { // Agarro la data de types y le hago un map para verificar que cada elemento exista en 
-          return Type.findOne({where:{ name: e}}) // nuestra tabla de tipos
+        types.map((e) => { // Agarro la data de types y le hago un map para verificar que cada elemento exista en nuestra tabla de types
+          return Type.findOne({where:{ name: e}}) 
         })
       )
-     await newPokemon.setTypes(dbTypes) //Una vez que se resuelva la promesa del Pokemon.create, le agrego los tipos
+     await newPokemon.setTypes(dbTypes) //Una vez que se resuelva la promesa del Pokemon.create, le agrego los types
 
      return res.send("Pokemon creado exitosamente");
     }

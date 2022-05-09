@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/pokemons/index" element={<Home />} />
+        <Route exact path="/pokemons/" element={<Home />} />
         <Route exact path="/pokemons/:id" element={<Details />} />
         <Route exact path="/create" element={<Create />} />
         <Route path="*" element={<ErrorPage />} />

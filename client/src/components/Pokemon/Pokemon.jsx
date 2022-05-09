@@ -14,8 +14,16 @@ export function Pokemon({ image, name, types }) {
       <h3 class="poke-name">{name}</h3>
       <div>
         <h4 class="poke-types">
-          {typeof types[0] === 'string' ? types[0] : types[0]?.name.charAt() + types[0].name.slice(1)}   
-          {typeof types[1] === 'string' ? " - " + types[1]  : types[1]?.name  }
+          {types.length === 2 ? (
+            <div>
+              {typeof types[0] === 'string' ? types[0] : types[0]?.name}-    
+              {typeof types[1] === 'string' ? types[1] : types[1]?.name}
+            </div>) 
+            : (
+            <div>
+              {typeof types[0] === 'string' ? types[0] : types[0]?.name}
+            </div>
+          )}
         </h4>
       </div>
     </div>

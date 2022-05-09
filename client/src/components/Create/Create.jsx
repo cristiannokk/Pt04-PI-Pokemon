@@ -34,7 +34,7 @@ export function Create() {
     // console.log(getTypes)
   }, [dispatch]);
 
-  function handleInputChange(e) { // el name
+  function handleInputChange(e) { 
     setInput({ 
       ...input, 
       [e.target.name]: e.target.value 
@@ -60,6 +60,7 @@ export function Create() {
   };
 
   function handleSubmit(e) {    
+    e.preventDefault();
     try {
       let findName = totalPokemon.filter(
         (e) => e.name.toLowerCase() === input.name.toLowerCase()
@@ -79,10 +80,9 @@ export function Create() {
           weight: input.weight,
           types: input.types,
         };
-        console.log(newPokemon);
+        // console.log(newPokemon);
         dispatch(postPokemon(newPokemon));
       }
-      alert(`El Pokémon fue creado con éxito.`)
       setInput({
         name: ``,
         hp: ``,
@@ -93,7 +93,9 @@ export function Create() {
         weight: ``,
         types: [],
       });
-      navigate(`/pokemons/index`)
+      return (
+        alert(`El Pokémon fue creado con éxito.`), navigate(`/pokemons/`)
+        ) 
       
     } catch (error) {
       console.log(error);
@@ -291,7 +293,7 @@ export function Create() {
             <span></span>
             Create
         </button>
-          <Link className="btn-create" to="/pokemons/index" style={{ textDecoration: "none" }}>
+          <Link className="btn-create" to="/pokemons/" style={{ textDecoration: "none" }}>
             <span></span>
             <span></span>
             <span></span>
