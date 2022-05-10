@@ -30,7 +30,7 @@ describe('Validacion numero', () => {
       .catch(() => done());
     });
     it('should work when its a valid number', () => {
-      Pokemon.create({  healthpoints: 45 });
+      Pokemon.create({  hp: 45 });
     });
   });
 });
