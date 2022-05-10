@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
       }
     },
     image: {
-      type: DataTypes.STRING(200000),
+      type: DataTypes.STRING(2000000),
       allowNull: true,
       validate: { isUrl: true },
       defaultValue: "https://www.models-resource.com/resources/big_icons/11/10411.png"
