@@ -64,7 +64,7 @@ async function allPokemon() {
 
 async function allPokemonId(id) {
   try {
-    if (id > 1125) {
+    if (id >= 1500) {
       try {
         let dbPokemonById = await Pokemon.findByPk(id, {
           include: [
