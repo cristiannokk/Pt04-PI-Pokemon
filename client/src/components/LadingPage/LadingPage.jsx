@@ -10,7 +10,7 @@ export function LandingPage() {
     <div>
     </div>
       <Link to="/pokemons/">
-        <button className="btn">INGRESAR</button>
+        <button className="btn">WELCOME</button>
       </Link>
     </div>
   );
