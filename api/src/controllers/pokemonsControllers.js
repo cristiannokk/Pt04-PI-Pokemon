@@ -35,7 +35,7 @@ async function getPokemonById(req, res) {
 };
 
 //================== POST ==================
-var idRef = 1126;
+var idRef = 1500;
 async function createPokemon(req, res){
   try {
     let { name, image, hp, attack, defense, speed, height, weight, types} = req.body //Datos que necesito pedir
