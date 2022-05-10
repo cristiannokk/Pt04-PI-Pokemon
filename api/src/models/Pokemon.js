@@ -17,11 +17,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
       validate: {
-        len: [0, 25]
+        len: [0, 15]
       }
     },
     image: {
-      type: DataTypes.STRING(2000000),
+      type: DataTypes.STRING(20000),
       allowNull: true,
       validate: { isUrl: true },
       defaultValue: "https://www.models-resource.com/resources/big_icons/11/10411.png"
