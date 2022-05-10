@@ -16,9 +16,6 @@ export function SearchBar() {
   //Handle del serach
   function handleSubmit(e) {
     e.preventDefault();
-    /* if (!name || name === "" || !name.trim().length) {
-      return;
-    } */
     dispatch(getNamePokemon(name.toLowerCase()));
     setName("");
   }

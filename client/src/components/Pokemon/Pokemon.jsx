@@ -1,7 +1,7 @@
 import React from "react";
 import "./PokemonStyles.css";
 
-export function Pokemon({ image, name, types, attack }) {
+export function Pokemon({ image, name, types }) {
   return (
     <div class="card-pokemon-container" key={name}>
       <div>
