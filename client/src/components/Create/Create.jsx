@@ -17,6 +17,7 @@ export function Create() {
   const totalPokemon = useSelector((state) => state.pokemons);
 
   const [errors, setErrorForm] = useState({});
+
   const [input, setInput] = useState({
     name: ``,
     hp: ``,
@@ -39,8 +40,7 @@ export function Create() {
       ...input, 
       [e.target.name]: e.target.value 
     });
-    setErrorForm(
-      validate({ 
+    setErrorForm(validate({ 
         ...input, 
         [e.target.name]: e.target.value }));
   };
@@ -62,8 +62,7 @@ export function Create() {
   function handleSubmit(e) {    
     e.preventDefault();
     try {
-      let findName = totalPokemon.filter(
-        (e) => e.name.toLowerCase() === input.name.toLowerCase()
+      let findName = totalPokemon.filter((e) => e.name.toLowerCase() === input.name.toLowerCase()
       )
       if (!findName) {
         return alert("Ya existe un pokemon con este nombre. ¡Cambialo!");
@@ -239,23 +238,6 @@ export function Create() {
           </div>
 
           <div>
-            <label>Image:</label>
-            <input
-              onChange={handleInputChange}
-              value={input.image}
-              name="image"
-              type="url"
-              placeholder="Paste the image url..."
-              className="input"
-            />
-            {errors.image && (
-              <div className="errors">
-                <div>{errors.image}</div>
-              </div>
-            )}
-          </div>
-
-          <div>
             <label>Type:</label>
             {input.types.length === 0 ? (
               <p className="selectType">Select up to two types! </p>
@@ -306,6 +288,5 @@ export function Create() {
         <Footer />
       </div>
     </div>
-
   );
 }

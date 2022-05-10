@@ -1,13 +1,13 @@
 import React from "react";
 import "./PokemonStyles.css";
 
-export function Pokemon({ image, name, types }) {
+export function Pokemon({ image, name, types, attack }) {
   return (
     <div class="card-pokemon-container" key={name}>
       <div>
         <img
           class="poke-img"
-          src={image || "https://imgur.com/fOOL1IV"}
+          src={image}
           alt="Imagen del Pokemon."
         />
       </div>

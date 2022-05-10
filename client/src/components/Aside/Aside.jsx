@@ -57,7 +57,7 @@ export function Aside() {
     <div>
       <aside class="aside-container">
         <div class= "ordenado">
-          <label class="label">Order by: </label>
+          <label class="label">Sort by: </label>
           <select
             class="select"
             defaultValue="name"

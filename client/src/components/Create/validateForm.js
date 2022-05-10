@@ -1,6 +1,5 @@
 export function validate(input) {
   let errors = {};
-  const urlOK = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|svg)/gi;
   const numberExpresion = /^-?\d*(\.\d+)?$/;
   //   El método search() y test() ejecutan una búsqueda que encaje entre una expresión regular y el objeto desde el que se llama.
 
@@ -17,11 +16,6 @@ export function validate(input) {
     errors.name = "El nombre no puede exceder los 15 caracteres";
   }
 
-  //Image:
-
-  if (input.image && urlOK.test(input.image)) {
-    errors.image = "Debes ingresar una URL valida";
-  } 
 
   //Hp
 
@@ -29,60 +23,62 @@ export function validate(input) {
     errors.hp = "El valor de la vida no puede ser menor a 1 ni mayor a 999.";
   } else if (input.hp.search(numberExpresion)) {
     //Valido el input con expresion regular.
-    errors.hp = "El valor ingresado debe ser solo numero. ¡Intenta de nuevo!";
+    errors.hp = "The entered value must be only a number. Try again!";
   }
 
   //Attack
 
   if (input.attack < 1 || input.attack > 999) {
-    errors.attack = "El poder de Ataque no puede ser menor a 1 ni mayor a 999.";
+    errors.attack = "Attack power cannot be less than 1 or greater than 999";
   } else if (input.attack.search(numberExpresion)) {
     errors.attack =
-      "El valor ingresado debe ser solo numero. ¡Intenta de nuevo!";
+      "The entered value must be only a number. Try again!";
   }
 
   //Defense
 
   if (input.defense < 1 || input.defense > 999) {
-    errors.defense = "La defensa no puede ser menor a 1 ni mayor a 999.";
+    errors.defense = "Defense cannot be less than 1 or greater than 999";
   } else if (input.defense.search(numberExpresion)) {
     errors.defense =
-      "El valor ingresado debe ser solo numero. ¡Intenta de nuevo!";
+      "The entered value must be only a number. Try again!";
   }
 
   //Speed:
 
   if (input.speed < 1 || input.speed > 999) {
-    errors.speed = "La velocidad no puede ser menor a 1 ni mayor a 999.";
+    errors.speed = "Speed ​​cannot be less than 1 or greater than 999";
   } else if (input.speed.search(numberExpresion)) {
     errors.speed =
-      "El valor ingresado debe ser solo numero. ¡Intenta de nuevo!";
+      "The entered value must be only a number. Try again!";
   }
 
   //Height
 
   if (input.height < 1 || input.height > 999) {
-    errors.height = "El valor no puede ser menor a 1 ni mayor a 999 ";
+    errors.height = "Height cannot be less than 1 or greater than 999";
   } else if (input.height.search(numberExpresion)) {
     //Valido el input con expresion regular.
     errors.height =
-      "El valor ingresado debe ser solo numero. ¡Intenta de nuevo!";
+      "The entered value must be only a number. Try again!";
   }
 
   //Weight
 
   if (input.weight < 1 || input.weight > 999) {
-    errors.weight = "El valor no puede ser menor a 1 ni mayor a 999 ";
+    errors.weight = "Weight cannot be less than 1 or greater than 999";
   } else if (input.weight.search(numberExpresion)) {
     //Valido el input con expresion regular.
     errors.weight =
-      "El valor ingresado debe ser solo numero. ¡Intenta de nuevo!";
+      "The entered value must be only a number. Try again!";
   }
 
-  if (!input.types) {
-    errors.types = "Debes seleccionar al menos un Type.";
+  //Types
+
+  if (!input.types || input.types === "null") {
+    errors.types = "You must select at least one type.";
   } else if (input.types.length > 2) {
-    errors.types = "Solo se admiten dos tipos";
+    errors.types = "only maximum two types are allowed";
   }
 
   return errors;
