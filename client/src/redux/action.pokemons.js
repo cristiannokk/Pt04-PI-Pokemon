@@ -12,7 +12,6 @@ export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const RESET = "RESET";
 export const RESET_DETAIL = "RESET_DETAIL";
 export const SET_LOADING = "SET_LOADING";
-export const SET_INFO = "SET_INFO";
 
 
 // -------------------> RUTAS BACK <-------------------
@@ -140,6 +139,7 @@ export function setLoading(value) {
     payload: value,
   };
 }
+
 
 
 // -------------------> TYPES <-------------------
