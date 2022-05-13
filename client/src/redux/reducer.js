@@ -64,11 +64,9 @@ export function rootReducer(state= initialState, action){
           action.payload === "allTypes"
           ? pokemons
           : pokemons.filter((e) =>
-                e.types.map((type) => type)[0] === action.payload ||
-                e.types.map((type) => type)[1] === action.payload
+              e.types.map((type) => type)[0] === action.payload ||
+              e.types.map((type) => type)[1] === action.payload
             );
-          // ? pokemons 
-          // : pokemons.filter((e) => e.types.includes(action.payload));
         return {
           ...state,
           backUp: typesFiltered,
@@ -76,19 +74,15 @@ export function rootReducer(state= initialState, action){
 
       case FILTER_BY_ORIGEN:
         let value = action.payload;
-        // console.log(action)
         const filterByOrigin = state.pokemons.filter((pokemons) => {
-          // console.log(typeof pokemon.id === "string")
           let resultado =
             value === "pokemonApi"
               ? pokemons.id < 1500
               : value === "createdPokemon"
               ? pokemons.id >= 1500
               : false;
-          // console.log(resultado)
           return resultado;
         });
-        // console.log(filterByOrigin)
         return {
           ...state,
           backUp: value === "allOrigin" ? state.pokemons : filterByOrigin,
