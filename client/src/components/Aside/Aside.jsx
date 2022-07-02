@@ -134,10 +134,10 @@ export function Aside() {
                   </option>
                 ))}
           </select>
+        </div>
           <button class="btn-reload" onClick={(e) => handleReset(e)}>
             Reload
           </button>
-        </div>
       </aside>
     </div>
   );

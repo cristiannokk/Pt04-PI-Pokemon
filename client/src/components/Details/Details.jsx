@@ -23,7 +23,7 @@ export function Details() {
   if (!onePokemon.name) {
     return (
       <div >
-        <NavBar/>
+        {/* <NavBar/> */}
         <div>
           <Loading />
         </div>
@@ -34,12 +34,24 @@ export function Details() {
     return (
       <div>
         <img className="imgDetais" src={imgDetails} alt="" />
-        <div class="background">
+        <div class="buttonss">
+            <button class="button-home">
+              <Link to="/pokemons/" class="linked">
+                Back to top
+              </Link>
+            </button>
+            <button class="button-home">
+              <Link to="/create" class="linked">
+                Create a pokemon
+              </Link>
+            </button>
+          </div>
+        <div class="container">
           <div class="cardsDetails">
             <div>
-              <h3 class="pokeName">
-                {`#${onePokemon.id}:`} {onePokemon.name}
-              </h3>
+              <p class="pokeName">
+                {`${onePokemon.id}:`} {onePokemon.name}
+              </p>
               <img
                 src={onePokemon.image}
                 alt={onePokemon.name}
@@ -72,20 +84,8 @@ export function Details() {
               </div>
             </div>
           </div>
-          <div class="buttonss">
-            <button class="button-home">
-              <Link to="/pokemons/" class="linked">
-                Back to top
-              </Link>
-            </button>
-            <button class="button-home">
-              <Link to="/create" class="linked">
-                Create a pokemon
-              </Link>
-            </button>
-          </div>
+          
         </div>
-        <Footer />
       </div>
     );
   } else if (!onePokemon.length) {

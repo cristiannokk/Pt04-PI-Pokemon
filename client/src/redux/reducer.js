@@ -42,7 +42,7 @@ export function rootReducer(state= initialState, action){
           ...state,
           backUp: nameSearched,
         };
-      } else {
+      } else {  
         return {
           ...state,
           pokemons: false,

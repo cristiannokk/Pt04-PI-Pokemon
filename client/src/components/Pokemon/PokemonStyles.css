@@ -1,6 +1,8 @@
 .card-pokemon-container {
-  width: 190px;
-  height: 220px;
+  /* width: 65%;
+  height: 95%; */
+  max-width: 65%;
+  max-height: 100%;
   border-radius: 10px;
   background-color: #0000008f;
   box-shadow: 1px 0px 60px -27px rgb(76, 11, 255);
@@ -8,6 +10,7 @@
   overflow: hidden;
   margin: auto;
   text-decoration: none;
+  
 }
 
 .card-pokemon-container::before {
@@ -41,8 +44,8 @@
 }
 
 .poke-img {
-  max-width: 115px;
-  max-height: 125px;
+  max-width: 55%;
+  max-height: 500%;
   margin: auto;
   padding-top: 5px;
   display: block;

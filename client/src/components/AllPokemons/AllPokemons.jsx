@@ -87,21 +87,31 @@ export function AllPokemon() {
           )}
         </div>
         <div class="pagination">
-          <button onClick={begin} class="pagination-button">
-            {"<"}
-          </button>
-          <button onClick={back} class="pagination-button a">
-            Previous
-          </button>
-          <p>
-            {counterPokemon} de {indexPages}
-          </p>
-          <button onClick={next} class="pagination-button p">
-            Next
-          </button>
-          <button onClick={end} class="pagination-button">
-            {">"}
-          </button>
+          {pokemonData.length !== 0 ? (
+            <div class="pagination-buttons">
+              <button class="pagination-button" onClick={begin}>
+                {" "}
+                {"<<"}{" "}
+              </button>
+              <button class="pagination-button" onClick={back}>
+                {" "}
+                {"<"}{" "}
+              </button>
+              <p className="pagination-counter">
+                {counterPokemon} de {indexPages}
+              </p>
+              <button class="pagination-button" onClick={next}>
+                {" "}
+                {">"}{" "}
+              </button>
+              <button class="pagination-button" onClick={end}>
+                {" "}
+                {">>"}{" "}
+              </button>
+            </div>
+          ) : (
+            <p> </p>
+          )}
         </div>
       </div>
     );

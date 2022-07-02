@@ -12,12 +12,11 @@
   padding: 9px;
   margin-left: 7px;
   transition: 0.5s ease-in-out;
-  position: absolute;
+  height: auto;
 }
 
 
 .input-search{
-  width:230px;
   color: rgb(230, 0, 255);
   font-size: 15px;
   font-weight: 600;

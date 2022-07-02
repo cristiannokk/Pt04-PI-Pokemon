@@ -7,72 +7,141 @@
   
 }
 
+@media only screen and (max-width: 640px){
 
-.nav-container{
-  position: relative;
-  width: 100%;
-  height: 121px;
-  background-color: #000000;
-  border-bottom: #ae00ff solid 5px;
-  font-family: 'Exo 2', sans-serif;
+  .nav-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 1rem; */
+    position: relative; 
+    background-color: #000000;
+    border-bottom: #ae00ff solid 5px;
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  
+  .all-li{
+    display: flex;
+    width: auto;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    row-gap: 1rem;
+  }
+  
+  .bot-nav {
+    display: flex;
+    min-width: 40%;
+    width: auto;
+  }
+  
+  
+  .link-route{
+    /* display: inline; */
+    font-size: 28px;
+    font-weight: 200;
+    font-style: italic;
+    color: #fff;
+    padding: 2px 16px 8px;
+    border: 4.4px solid #fff;
+    border-radius: 32px;
+    text-decoration: none;
+    /* text-align: right; */
+    animation: flicker 1.5s infinite alternate;     
+  }
+  .link-route:active {
+    border-color: #b103f6;
+    color: #000000
+  }
+  
+  
+  .link-route::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+  }
+  
+  .link-route:focus {
+    outline: none;
+  }
+
+  .branding{
+    text-align:center;
+  }
 }
 
+@media only screen and (min-width: 640px){
+  .nav-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative; 
+    background-color: #000000;
+    border-bottom: #ae00ff solid 5px;
+    font-family: 'Exo 2', sans-serif;
+  }
+  .all-li{
+    display: flex;
+    min-width: 90%;
+    width: auto;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    grid-row-gap: 1rem;
+    row-gap: 1rem;
+  }
+  .bot-nav {
+    display: flex;
+    min-width: 40%;
+    width: auto;
+    justify-content: flex-start;
+  }
+  
+  
+  .link-route{
+    
+    font-size: 14px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    font-style: italic;
+    color: #fff;
+    padding: 2px 16px 8px;
+    border: 4.4px solid #fff;
+    border-radius: 32px;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.92em 1rem;
+    animation: flicker 1.5s infinite alternate;     
+  }
 
-.all-li{
-  padding-top: 53px;
-  position: absolute;
-  width: 16%;
-  margin: auto;
-}
-
-.search-container{
-  position: absolute;
-  top: 25px;
-  margin-left: 81%;
-  width: auto;
-}
-
-.link-route{
-  display: inline;
-  font-size: 28px;
-  font-weight: 200;
-  font-style: italic;
-  color: #fff;
-  padding: 2px 16px 8px;
-  border: 4.4px solid #fff;
-  border-radius: 32px;
-  text-decoration: none;
-  text-align: right;
-  animation: flicker 1.5s infinite alternate;     
-  margin-left: 35px;
-}
-.link-route:active {
-  border-color: #b103f6;
-  color: #000000
-}
-
-/* .link-route::-moz-selection {
-  background-color: var(--neon-border-color);
-  color: var(--neon-text-color);
-} */
-
-.link-route::selection {
-  background-color: var(--neon-border-color);
-  color: var(--neon-text-color);
-}
-
-.link-route:focus {
-  outline: none;
-}
-
-.logo-pokemon{
-  position: absolute;
-  width: 120px;
-  height: 120px;
-}
-
-.branding{
-	text-align:center;
+  .link-route:active {
+    border-color: #b103f6;
+    color: #000000
+  }
+  
+  
+  .link-route::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+  }
+  
+  .link-route:focus {
+    outline: none;
+  }
+    
+  .branding{
+    text-align:center;
+  }
 }
 
 @keyframes flicker {
