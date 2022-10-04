@@ -55,70 +55,70 @@ export function Aside() {
 
   return (
     <div>
-      <aside class="aside-container">
-        <div class= "ordenado">
-          <label class="label">Sort by: </label>
+      <aside className="aside-container">
+        <div className= "ordenado">
+          <label className="label">Sort by: </label>
           <select
-            class="select"
+            className="select"
             defaultValue="name"
             onChange={(e) => handleFilterName(e)}
           >
-            <option class="options" value="name" disabled>
+            <option className="options" value="name" disabled>
               Name
             </option>
-            <option class="options" value="aToZ">
+            <option className="options" value="aToZ">
               A - Z
             </option>
-            <option class="options" value="zToA">
+            <option className="options" value="zToA">
               Z - A
             </option>
           </select>
 
           <select
-            class="select"
+            className="select"
             defaultValue="attack"
             onChange={(e) => handleOrderByAttack(e)}
           >
-            <option class="options" value="attack" disabled>
+            <option className="options" value="attack" disabled>
               Attack
             </option>
-            <option class="options" value="minToMax">
+            <option className="options" value="minToMax">
               Min to Max
             </option>
-            <option class="options" value="maxToMin">
+            <option className="options" value="maxToMin">
               Max to Min
             </option>
           </select>
         </div>
 
-        <div class="filtrado">
-          <label class="label">Filter: </label>
+        <div className="filtrado">
+          <label className="label">Filter: </label>
           <select
-            class="select"
+            className="select"
             defaultValue="allOrigin"
             onChange={(e) => handleFilterOrigin(e)}
           >
-            <option class="options" value="allOrigin">
+            <option className="options" value="allOrigin">
               All Origin
             </option>
-            <option class="options" value="pokemonApi">
+            <option className="options" value="pokemonApi">
               Poke Api
             </option>
-            <option class="options" value="createdPokemon">
+            <option className="options" value="createdPokemon">
               Created
             </option>
           </select>
 
           <select
-            class="select"
+            className="select"
             defaultValue="Types"
             onChange={(e) => handleFilterByTypes(e)}
             id="type-select"
           >
-            <option class="options" value="Types" disabled>
+            <option className="options" value="Types" disabled>
               Types
             </option>
-            <option class="options" value="allTypes">
+            <option className="options" value="allTypes">
               All Types
             </option>
             {totalTypes &&
@@ -129,13 +129,13 @@ export function Aside() {
                   return 0;
                 })
                 .map((t) => (
-                  <option class="options" value={t.name} key={t.name}>
+                  <option className="options" value={t.name} key={t.name}>
                     {t.name}
                   </option>
                 ))}
           </select>
         </div>
-          <button class="btn-reload" onClick={(e) => handleReset(e)}>
+          <button className="btn-reload" onClick={(e) => handleReset(e)}>
             Reload
           </button>
       </aside>

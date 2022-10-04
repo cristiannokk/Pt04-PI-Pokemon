@@ -50,7 +50,7 @@
     border: 4.4px solid #fff;
     border-radius: 32px;
     text-decoration: none;
-    /* text-align: right; */
+    list-style: none;
     animation: flicker 1.5s infinite alternate;     
   }
   .link-route:active {
@@ -121,6 +121,7 @@
     text-decoration: none;
     text-align: center;
     padding: 0.92em 1rem;
+    list-style: none;
     animation: flicker 1.5s infinite alternate;     
   }
 

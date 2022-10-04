@@ -66,12 +66,12 @@ export function AllPokemon() {
   } else {
     return (
       <div>
-        <div class="main-pokemons-card">
+        <div className="main-pokemons-card">
           {pokemonData.length === 0 ? (
             <p className="sinPokemon">No se encontraron Pokémones con estas caracteristicas.</p>
           ) : (
             pokemonData.map((p, index) => (
-              <Link key={index} to={"/pokemons/" + p.id} class= "linked">
+              <Link key={index} to={"/pokemons/" + p.id} className= "linked">
                 <Pokemon
                   key={index}
                   name={p.name}
@@ -86,25 +86,25 @@ export function AllPokemon() {
             ))
           )}
         </div>
-        <div class="pagination">
+        <div className="pagination">
           {pokemonData.length !== 0 ? (
-            <div class="pagination-buttons">
-              <button class="pagination-button" onClick={begin}>
+            <div className="pagination-buttons">
+              <button className="pagination-button" onClick={begin}>
                 {" "}
                 {"<<"}{" "}
               </button>
-              <button class="pagination-button" onClick={back}>
+              <button className="pagination-button" onClick={back}>
                 {" "}
                 {"<"}{" "}
               </button>
               <p className="pagination-counter">
                 {counterPokemon} de {indexPages}
               </p>
-              <button class="pagination-button" onClick={next}>
+              <button className="pagination-button" onClick={next}>
                 {" "}
                 {">"}{" "}
               </button>
-              <button class="pagination-button" onClick={end}>
+              <button className="pagination-button" onClick={end}>
                 {" "}
                 {">>"}{" "}
               </button>

@@ -3,17 +3,17 @@ import "./PokemonStyles.css";
 
 export function Pokemon({ image, name, types }) {
   return (
-    <div class="card-pokemon-container" key={name}>
+    <div className="card-pokemon-container" key={name}>
       <div>
         <img
-          class="poke-img"
+          className="poke-img"
           src={image}
           alt="Imagen del Pokemon."
         />
       </div>
-      <h3 class="poke-name">{name}</h3>
+      <h3 className="poke-name">{name}</h3>
       <div>
-        <h4 class="poke-types">
+        <h4 className="poke-types">
           {types.length === 2 ? (
             <div>
               {typeof types[0] === 'string' ? types[0] : types[0]?.name}-    

@@ -1,7 +1,7 @@
 // import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Footer } from "../Footer/Footer";
+// import { Footer } from "../Footer/Footer";
 import { postPokemon, getTypes, getAllPokemons,} from "../../redux/action.pokemons";
 import { useDispatch, useSelector } from "react-redux";
 import "./CreateStyles.css";
@@ -99,7 +99,7 @@ export function Create() {
     } catch (error) {
       console.log(error);
       return alert(
-        "Oh no! Algo falló al crear el Pokémon. ¡Intentalo de nuevo!"
+        "Algo falló al crear el Pokémon. ¡Intentalo de nuevo!"
       );
     }
   };

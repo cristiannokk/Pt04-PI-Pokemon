@@ -34,36 +34,36 @@ export function Details() {
     return (
       <div>
         <img className="imgDetais" src={imgDetails} alt="" />
-        <div class="buttonss">
-            <button class="button-home">
-              <Link to="/pokemons/" class="linked">
+        <div className="buttonss">
+            <button className="button-home">
+              <Link to="/pokemons/" className="linked">
                 Back to top
               </Link>
             </button>
-            <button class="button-home">
-              <Link to="/create" class="linked">
+            <button className="button-home">
+              <Link to="/create" className="linked">
                 Create a pokemon
               </Link>
             </button>
           </div>
-        <div class="container">
-          <div class="cardsDetails">
+        <div className="container">
+          <div className="cardsDetails">
             <div>
-              <p class="pokeName">
+              <p className="pokeName">
                 {`${onePokemon.id}:`} {onePokemon.name}
               </p>
               <img
                 src={onePokemon.image}
                 alt={onePokemon.name}
-                class="pokeImage"
+                className="pokeImage"
               />
             </div>
-            <div class="types">
+            <div className="types">
               {onePokemon.types
                 ? onePokemon.types.map((e) => "  " + e).join(" - ")
                 : onePokemon.types}
             </div>
-            <div class="description">
+            <div className="description">
               <div>
                 <h4>{`HP: ${onePokemon.hp}`}</h4>
               </div>
